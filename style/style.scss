@@ -1,0 +1,560 @@
+    @import "./variable";
+    * {
+        box-sizing: border-box;
+    }
+    
+    body {
+        margin: 0;
+        padding: 0;
+        color: $ts-black-color;
+        font-family: 'Urbanist', sans-serif;
+        font-size: $ts-font-01;
+    }
+    
+    .dark {
+        height: 33px;
+        background-color: $ts-black-color;
+    }
+    
+    .headings-2 {
+        color: brown;
+        margin-bottom: 16px;
+        font-weight: 600;
+        font-size: $ts-heading-01;
+    }
+    
+    .ts-headings {
+        font-weight: 600;
+        font-size: $ts-heading-04;
+    }
+    
+    .slide-container,
+    .hero-container,
+    .accordion-container,
+    .ts-contact,
+    .ts-footer {
+        margin: 90px 0;
+        @include sm-down {
+            margin: 30px 10px;
+        }
+    }
+    
+    // <*****************[NAVIGATION BAR]*****************>
+    .ts-navigation {
+        max-width: 1170px;
+        margin: auto;
+        position: sticky;
+        top: 0px;
+        z-index: 999;
+    }
+    
+    .ts-navbar {
+        padding: 0px;
+        .dropdown-menu {
+            padding: 0px;
+            margin: 0px;
+            margin-right: 14px;
+            .dropdown-item {
+                padding: 4px 9px;
+                background-color: $ts-Vivid-Auburn-color;
+                color: $ts-white-color;
+                &:hover {
+                    background-color: $ts-white-color;
+                    color: $ts-Vivid-Auburn-color;
+                }
+            }
+        }
+        &-button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-inline: 15px;
+            padding-block: 13px;
+        }
+        &-nav {
+            .nav {
+                &-item {
+                    .nav-btn {
+                        &:hover .bi-arrow-right {
+                            transform: scale(0.89);
+                        }
+                    }
+                }
+                &-link {
+                    padding: 4px 16px;
+                    margin-right: 15px;
+                    color: $ts-black-color;
+                    font-weight: 600;
+                    &:hover {
+                        background-color: $ts-Vivid-Auburn-color;
+                        color: $ts-white-color;
+                    }
+                }
+            }
+        }
+        .navbar-brand {
+            &-icon {
+                max-width: 155px;
+            }
+        }
+        .navbar-toggler {
+            width: 22px;
+            height: 16px;
+            position: relative;
+            @extend %span-rotate;
+            -webkit-transition: 0.5s ease-in-out;
+            -moz-transition: 0.5s ease-in-out;
+            -o-transition: 0.5s ease-in-out;
+            transition: 0.5s ease-in-out;
+            cursor: pointer;
+            &:focus {
+                box-shadow: none;
+            }
+            &:hover {
+                span:nth-child(3) {
+                    width: 100%;
+                    margin-left: 0;
+                }
+                span:nth-child(1) {
+                    width: 100%;
+                    margin-left: 0;
+                }
+            }
+            // EXTEND NAV BUTTOON
+            %span-child {
+                -webkit-transform-origin: left center;
+                -moz-transform-origin: left center;
+                -o-transform-origin: left center;
+                transform-origin: left center;
+            }
+            %span-rotate {
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            &__span {
+                display: block;
+                position: absolute;
+                height: 2px;
+                width: 100%;
+                background: $ts-Vivid-Auburn-color;
+                border-radius: 3px;
+                opacity: 1;
+                left: 0;
+                @extend %span-rotate;
+                -webkit-transition: 0.25s ease-in-out;
+                -moz-transition: 0.25s ease-in-out;
+                -o-transition: 0.25s ease-in-out;
+                transition: 0.25s ease-in-out;
+            }
+            &__span:nth-child(1) {
+                top: 0px;
+                @extend %span-child;
+                width: 100%;
+            }
+            &__span:nth-child(2) {
+                top: 6px;
+                @extend %span-child;
+            }
+            &__span:nth-child(3) {
+                top: 12px;
+                @extend %span-child;
+                width: 100%;
+                transition: all 0.3s ease-in-out;
+            }
+        }
+        [aria-expanded="true"] .navbar-toggler__span:nth-child(1) {
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+            top: -2px;
+            left: 3px;
+            width: 100%;
+            margin-left: 0;
+        }
+        [aria-expanded="true"] .navbar-toggler__span:nth-child(2) {
+            width: 0%;
+            opacity: 0;
+        }
+        [aria-expanded="true"] .navbar-toggler__span:nth-child(3) {
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            top: 15px;
+            left: 3px;
+            width: 100%;
+            margin-left: 0;
+        }
+    }
+    
+    form input:-webkit-autofill,
+    form input:-webkit-autofill:hover,
+    form input:-webkit-autofill:focus,
+    form input:-webkit-autofill:active {
+        transition: background-color 5000s ease-in-out 0s;
+        -webkit-text-fill-color: #212529 !important;
+    }
+    
+    // <*****************[TS-LEFT-BAR]*****************>
+    .ts-left-bar {
+        margin: auto;
+        float: left;
+        text-align: left;
+        width: $ts-width-01;
+        @include lg-down {
+            width: 100%;
+            margin: auto;
+        }
+        ////////// Header Showcase ////////////
+        #showcase {
+            width: $ts-width-04;
+            min-height: 490px;
+            color: $ts-white-color;
+            background: url("../images/img.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 490px;
+            z-index: -1;
+            .content-wrap {
+                padding: 24px;
+                .ts-showcase-headings {
+                    font-size: clamp(1.3rem, 0.04347826086956519rem + 8.695652173913043vw, 2.5rem);
+                    margin-bottom: 0.2em;
+                    letter-spacing: var(--hero-letter-spacing)
+                }
+                .ts-showcase-text {
+                    font-size: clamp(.8rem, 0.90543478260869565rem + 0.7695652173913043vw, 1.5rem);
+                    line-height: 1.4;
+                }
+            }
+            .ts-row {
+                padding: clamp(5rem, -6.521739130434783rem + 15.65217391304348vw, 12rem) 1%;
+                color: white;
+                text-align: center;
+                margin: auto;
+                .ts-box {
+                    background-color: $ts-Dawn-Pink-color;
+                    max-width: 130px;
+                    margin: 7px;
+                    @include sm-down {
+                        width: auto;
+                    }
+                    .text-color-Auburn {
+                        color: $ts-Vivid-Auburn-color;
+                        font-weight: 600;
+                        font-size: $ts-font-01;
+                    }
+                    .icon-color {
+                        color: $ts-Vivid-Auburn-color;
+                        @include lg-up {
+                            padding: 24px 16px;
+                        }
+                        @include sm-down {
+                            font-size: $ts-font-01;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    // <*****************[SLIDER]*****************>
+    .slideshow-container {
+        padding-bottom: 5px;
+        position: relative;
+        /* Slides */
+        .mySlides {
+            display: none;
+            margin: auto;
+            max-width: 500px;
+            border-bottom: 3px solid $ts-Vivid-Auburn-color;
+            .ts-profile {
+                width: 50px;
+                height: 50px;
+                border-radius: 100%;
+                object-fit: cover;
+            }
+            .ts-headings {
+                color: $ts-black-color;
+            }
+            .rating-star {
+                text-align: right;
+                color: #FFCD4B;
+            }
+        }
+        .slick-slide {
+            opacity: 0.5;
+            color: #000;
+            padding: 0 20px;
+        }
+        .slick-current {
+            opacity: 1;
+            transform: scale(1);
+        }
+        ////////////////DOT CONTAINER/////////////////
+        .slick-dots {
+            text-align: center;
+            bottom: -38px;
+        }
+        .slick-dots li {
+            cursor: pointer;
+            display: inline-block;
+            padding: 5px;
+            background-color: $ts-Dawn-Pink-color;
+            margin: 15px;
+            width: 10px;
+            height: 10px;
+            transform: rotate(45deg);
+            button:before {
+                opacity: 0;
+            }
+        }
+        .slick-dots li.slick-active {
+            background-color: $ts-Vivid-Auburn-color;
+        }
+    }
+    
+    // <*****************[HERO SECTION]*****************>
+    .hero-container {
+        #ts-parent-01 {
+            position: relative;
+            width: 300px;
+            height: 220px;
+            @include md-down {
+                width: 100%;
+                margin: auto;
+            }
+            .ts-img-2 {
+                position: absolute;
+                width: 300px;
+                height: 225px;
+                bottom: 16px;
+                left: 16px;
+                z-index: 12;
+                object-fit: cover;
+                @include md-down {
+                    width: 100%;
+                    margin: auto;
+                }
+            }
+            .ts-auburn {
+                background: $ts-Vivid-Auburn-color;
+                width: 200px;
+                height: 200px;
+                position: absolute;
+                top: 20px;
+                left: 20;
+                z-index: 9;
+            }
+        }
+        #ts-parent-02 {
+            position: relative;
+            width: 300px;
+            height: 220px;
+            @include md-down {
+                width: 100%;
+                margin: auto;
+            }
+            .ts-img-2 {
+                position: absolute;
+                width: 300px;
+                height: 225px;
+                bottom: 16px;
+                right: 16px;
+                z-index: 12;
+                object-fit: cover;
+                @include md-down {
+                    width: 100%;
+                    margin: auto;
+                }
+            }
+            .ts-auburn {
+                background: $ts-Vivid-Auburn-color;
+                width: 200px;
+                height: 200px;
+                position: absolute;
+                bottom: -2px;
+                right: -2px;
+                z-index: 9;
+            }
+        }
+        .card {
+            border: none;
+            .ts-text-brown {
+                color: $ts-Vivid-Auburn-color;
+                font-weight: 600;
+                font-size: $ts-heading-03;
+            }
+            .card-text {
+                font-size: $ts-font-01;
+            }
+            .card-body {
+                @include sm-down {
+                    padding: 16px 0;
+                }
+            }
+        }
+    }
+    
+    // <*****************[ACCORDION SECTION]*****************>
+    .accordion-container {
+        .accordion .accordion-item {
+            padding: 16px 0;
+            border-bottom: 1px solid $ts-Oslo-Grey-color !important;
+        }
+        .accordion-title {
+            font-weight: 600;
+            font-size: $ts-heading-02;
+        }
+        .accordion h2 {
+            position: relative;
+            display: block;
+            width: 100%;
+            background: none;
+            line-height: 20px;
+            margin: 0px;
+            padding: 16px 0;
+        }
+        .accordion h2:hover,
+        .accordion h2:focus {
+            cursor: pointer;
+        }
+        .accordion h2:hover::after,
+        .accordion h2:focus::after {
+            cursor: pointer;
+        }
+        .accordion h2 .icon {
+            display: inline-block;
+            position: absolute;
+            top: 2px;
+            right: 0;
+            width: 22px;
+            height: 22px;
+            border: 1px solid;
+            border-radius: 22px;
+        }
+        .accordion h2 .icon::before {
+            display: block;
+            position: absolute;
+            content: "";
+            top: 9px;
+            left: 5px;
+            width: 10px;
+            height: 2px;
+            background: currentColor;
+        }
+        .accordion h2 .icon::after {
+            display: block;
+            position: absolute;
+            content: "";
+            top: 5px;
+            left: 9px;
+            width: 2px;
+            height: 10px;
+            background: currentColor;
+        }
+        .accordion h2[aria-expanded=true] .icon::after {
+            width: 0;
+        }
+        .accordion h2[aria-expanded=true]+.accordion-content {
+            opacity: 1;
+            max-height: 5000px;
+            transition: all 200ms linear;
+            will-change: opacity, max-height;
+            margin-top: 10px;
+        }
+        .accordion .accordion-content {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 200ms linear, max-height 200ms linear;
+            will-change: opacity, max-height;
+        }
+        .accordion .accordion-content p {
+            font-size: $ts-font-01;
+            margin: 0px;
+        }
+    }
+    
+    // <*****************[CONTACT SECTION]*****************>
+    .ts-contact {
+        .form-control {
+            &::placeholder {
+                color: $ts-black-color;
+                font-size: $ts-font-01;
+            }
+            background-color: $ts-Seashell-color;
+            padding: 8px;
+            margin: 8px 0;
+            border-radius: 0;
+            border: none;
+        }
+        .ts-contact-icon {
+            color: $ts-Vivid-Auburn-color;
+            background-color: $ts-Dawn-Pink-color;
+            padding: 12px;
+        }
+        .ts-btn {
+            margin-left: 12px;
+            padding: 10px 32px;
+            width: 100px;
+            border-radius: 0;
+            color: $ts-white-color;
+            background-color: $ts-Vivid-Auburn-color;
+            &:hover {
+                background-color: $ts-Dawn-Pink-color;
+            }
+        }
+    }
+    
+    // <*****************[FOOTER SECTION]*****************>
+    .ts-footer {
+        background-color: $ts-black-color;
+        color: $ts-white-color;
+        .ts-content {
+            padding: 48px 0;
+            font-size: $ts-font-01;
+        }
+        .copy-right {
+            background-color: $ts-Vivid-Auburn-color;
+            padding: 16px;
+        }
+        .img {
+            width: 155px;
+        }
+    }
+    
+    // <*****************[RIGHT CONTAINER]*****************>
+    .ts-container-right {
+        float: right;
+        width: $ts-width-02;
+        @include lg-down {
+            width: 100%;
+            margin: auto;
+        }
+        @include sm-down {
+            margin: 10px;
+        }
+        .ts-content {
+            color: $ts-black-color;
+            .content-1 {
+                font-size: 20px;
+                padding: 16px;
+                background-color: $ts-Vivid-Auburn-color;
+                color: $ts-white-color;
+            }
+            .content-2 {
+                padding: 16px;
+                margin: 16px 0;
+                background-color: $ts-Seashell-color;
+                .ts-text {
+                    padding: 16px 0;
+                }
+            }
+        }
+    }

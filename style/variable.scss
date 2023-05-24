@@ -1,0 +1,141 @@
+// <*****************[FONTS]*****************>
+@font-face {
+    @import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;900&display=swap');
+    font-family: 'Urbanist', sans-serif;
+}
+
+// <*****************[COLORS]*****************>
+$ts-white-color: #ffffff;
+$ts-black-color: #000000;
+$ts-Seashell-color: #f3f1f0;
+$ts-Oslo-Grey-color: #8d8d8d;
+$ts-Vivid-Auburn-color: #8A2526;
+$ts-Dawn-Pink-color: #f3e9e9;
+// <*****************[BREAKPOINT]*****************>
+$screen-sm-up: 576px;
+$screen-sm-down: 575px;
+// Small tablets (portrait view)
+$screen-md-up: 768px;
+$screen-md-down: 767px;
+// Tablets and small desktops
+$screen-lg-up: 992px;
+$screen-lg-down: 991px;
+// Large tablets and desktops
+$screen-xl-up: 1200px;
+$screen-xl-down: 1199px;
+// Extra Large and desktops
+$screen-xxl-up: 1400px;
+$screen-xxl-down: 1399px;
+// Small devices
+@mixin sm-up {
+    @media (min-width: #{$screen-sm-up}) {
+        @content;
+    }
+}
+
+@mixin sm-down {
+    @media (max-width: #{$screen-sm-down}) {
+        @content;
+    }
+}
+
+// Medium devices
+@mixin md-up {
+    @media (min-width: #{$screen-md-up}) {
+        @content;
+    }
+}
+
+@mixin md-down {
+    @media (max-width: #{$screen-md-down}) {
+        @content;
+    }
+}
+
+// Large devices
+@mixin lg-up {
+    @media (min-width: #{$screen-lg-up}) {
+        @content;
+    }
+}
+
+@mixin lg-down {
+    @media (max-width: #{$screen-lg-down}) {
+        @content;
+    }
+}
+
+// Extra large devices
+@mixin xl-up {
+    @media (min-width: #{$screen-xl-up}) {
+        @content;
+    }
+}
+
+@mixin xl-down {
+    @media (max-width: #{$screen-xl-down}) {
+        @content;
+    }
+}
+
+// Extra large devices
+@mixin xxl-up {
+    @media (min-width: #{$screen-xxl-up}) {
+        @content;
+    }
+}
+
+@mixin xxl-down {
+    @media (max-width: #{$screen-xxl-down}) {
+        @content;
+    }
+}
+
+// <*****************[Width]*****************>
+$ts-width-01: clamp(300px,
+65%,
+790px);
+$ts-width-02: clamp(280px,
+33%,
+330px);
+$ts-width-03: clamp(300px,
+100%,
+720px);
+$ts-width-04: clamp(300px,
+100%,
+790px);
+// <*****************[HEADING]*****************>
+$ts-heading-01: clamp(20px,
+3vw,
+32px);
+$ts-heading-02: clamp(12px,
+2vw,
+20px);
+$ts-heading-03: clamp(12px,
+1vw,
+24px);
+$ts-heading-04: clamp(16px,
+1.8vw,
+24px);
+// <*****************[font size]*****************>
+$ts-font-01: clamp(10px,
+1vw,
+16px);
+// @mixin ts-font-01 {
+//     font-size: calc(.5vw + .5vh + .5vmin);
+// }
+// spacing
+$spacing-01: 0.25rem; // 4px
+$spacing-02: 0.5rem; // 8px
+$spacing-03: 0.75rem; // 12px
+$spacing-04: 1rem; // 16px
+$spacing-05: 1.25rem; // 20px
+$spacing-06: 1.5rem; // 24px
+$spacing-07: 2rem; // 32px
+$spacing-08: 2.5rem; // 40px
+$spacing-09: 3rem; // 48px
+$spacing-10: 3.375rem; // 54px
+$spacing-11: 4rem; // 64px
+$spacing-12: 4.5rem; // 72px
+$spacing-13: 5rem; // 80px
+$spacing-14: 6rem; // 96px
